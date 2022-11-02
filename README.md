@@ -1,1 +1,1 @@
-"#java spring consulta SQL e JPQL" 
+# java spring consulta SQL e JPQL 
