@@ -1,7 +1,7 @@
 package com.rafaeldeluca.uri2621.projections;
 
-public interface ProductNameProjection {
+public interface ProductNamePriceProjection {
 	
 	String getName();
-	
+	Double getPrice();
 }

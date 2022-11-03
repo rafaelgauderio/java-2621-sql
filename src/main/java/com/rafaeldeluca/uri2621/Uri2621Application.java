@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.rafaeldeluca.uri2621.dto.ProductDTO;
+import com.rafaeldeluca.uri2621.dto.ProductNamePriceProjectionDTO;
+import com.rafaeldeluca.uri2621.projections.ProductNamePriceProjection;
 import com.rafaeldeluca.uri2621.projections.ProductNameProjection;
 import com.rafaeldeluca.uri2621.repositories.ProductRepository;
 
@@ -28,10 +30,19 @@ public class Uri2621Application implements CommandLineRunner {
 		List<ProductNameProjection> listName = repository.listName(10,20,"P");
 		List<ProductDTO> resultListName = listName.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 		
+		List<ProductNamePriceProjection> listNamePrice = repository.listNamePrice(500.0, 3100.0,"Elon" );
+		List<ProductNamePriceProjectionDTO> result2 = listNamePrice.stream().map(x -> new ProductNamePriceProjectionDTO(x)).collect(Collectors.toList());
+		
 		System.out.println("CONSULTAS COM SQL RAIZ");
 		for(ProductDTO object : resultListName) {
 			System.out.println(object);
+						
 		}
+		
+		System.out.println("\nConsultando nome e preço");
+		for (ProductNamePriceProjectionDTO nickname : result2) {
+			System.out.println(nickname);
+		}		
 		
 	}
 }
