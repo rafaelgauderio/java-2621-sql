@@ -7,6 +7,7 @@ public class ProductNamePriceProjectionDTO {
 	private String name;
 	private Double price;
 	
+	
 	public ProductNamePriceProjectionDTO () {
 		
 	}	

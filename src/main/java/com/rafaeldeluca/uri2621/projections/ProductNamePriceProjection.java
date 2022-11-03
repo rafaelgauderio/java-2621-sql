@@ -4,4 +4,5 @@ public interface ProductNamePriceProjection {
 	
 	String getName();
 	Double getPrice();
+	String getProvider();
 }

@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.rafaeldeluca.uri2621.dto.ProductDTO;
 import com.rafaeldeluca.uri2621.dto.ProductNamePriceProjectionDTO;
+import com.rafaeldeluca.uri2621.dto.ProductNamePriceProviderDTO;
 import com.rafaeldeluca.uri2621.projections.ProductNamePriceProjection;
 import com.rafaeldeluca.uri2621.projections.ProductNameProjection;
 import com.rafaeldeluca.uri2621.repositories.ProductRepository;
@@ -48,6 +49,13 @@ public class Uri2621Application implements CommandLineRunner {
 		
 		List<ProductNamePriceProjectionDTO> result3 = repository.listJPQL(10,500,"Elon");
 		for(ProductNamePriceProjectionDTO object : result3) {
+			System.out.println(object);
+						
+		}
+		
+		System.out.println("\n\nImprimindo o Fornecedor");
+		List<ProductNamePriceProviderDTO> result4 = repository.listJPQLProvider(1,500,"Mike");
+		for(ProductNamePriceProviderDTO object : result4) {
 			System.out.println(object);
 						
 		}
