@@ -44,5 +44,13 @@ public class Uri2621Application implements CommandLineRunner {
 			System.out.println(nickname);
 		}		
 		
+		System.out.println("\nCONSULTAS COM JPQL\n");
+		
+		List<ProductNamePriceProjectionDTO> result3 = repository.listJPQL(10,500,"Elon");
+		for(ProductNamePriceProjectionDTO object : result3) {
+			System.out.println(object);
+						
+		}
+		
 	}
 }

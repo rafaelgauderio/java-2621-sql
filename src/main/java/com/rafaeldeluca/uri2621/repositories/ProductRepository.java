@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.rafaeldeluca.uri2621.dto.ProductNamePriceProjectionDTO;
 import com.rafaeldeluca.uri2621.entities.Product;
 import com.rafaeldeluca.uri2621.projections.ProductNamePriceProjection;
 import com.rafaeldeluca.uri2621.projections.ProductNameProjection;
@@ -27,4 +28,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			+ "WHERE products.price BETWEEN :min AND :max "
 			+ "AND providers.name LIKE CONCAT('%',:hasName, '%')") //tem a palavra em algum lugar				
 	List<ProductNamePriceProjection> listNamePrice(double min, double max, String hasName);
+	
+	
+	@Query("SELECT new com.rafaeldeluca.uri2621.dto.ProductNamePriceProjectionDTO (obj.name, obj.price) "
+			+ "FROM Product obj "	//object é palavra reservada no SQL		
+			+ "WHERE obj.amount BETWEEN :min AND :max "
+			+ "AND obj.provider.name LIKE CONCAT('%',:hasName, '%')") //tem a palavra em algum lugar				
+	List<ProductNamePriceProjectionDTO> listJPQL(Integer min, Integer max, String hasName);
 }

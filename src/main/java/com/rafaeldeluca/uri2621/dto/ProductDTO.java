@@ -4,7 +4,7 @@ import com.rafaeldeluca.uri2621.projections.ProductNameProjection;
 
 public class ProductDTO {
 	
-	private String name;
+	private String name;	
 	
 	public ProductDTO () {
 		
